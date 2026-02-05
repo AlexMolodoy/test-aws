@@ -1,0 +1,14 @@
+{
+  "resourceName": "TestAWSS3Bucket",
+  "policyUUID": "c3441e76",
+  "bucketName": "testawss3bucket427ac568a4514d83948da8ebb2357f0d",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "S3Trigger67fef03a",
+  "groupAccess": {}
+}
