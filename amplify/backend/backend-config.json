@@ -1,10 +1,25 @@
 {
   "api": {
     "testaws": {
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "testawsf1a2e31c"
+        }
+      ],
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authtestawsf1a2e31c"
+              }
+            }
+          ],
           "defaultAuthentication": {
             "apiKeyConfig": {
               "apiKeyExpirationDays": 7
@@ -56,6 +71,11 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "todoProcessor": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -88,6 +108,22 @@
         {
           "category": "function",
           "resourceName": "testawsfe5d5ede"
+        }
+      ]
+    },
+    "AMPLIFY_function_todoProcessor_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "todoProcessor"
+        }
+      ]
+    },
+    "AMPLIFY_function_todoProcessor_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "todoProcessor"
         }
       ]
     }

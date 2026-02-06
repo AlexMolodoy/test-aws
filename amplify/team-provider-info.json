@@ -23,6 +23,10 @@
         "S3Trigger67fef03a": {
           "deploymentBucketName": "amplify-testaws-dev-d9a06-deployment",
           "s3Key": "amplify-builds/S3Trigger67fef03a-716268656937376e2b75-build.zip"
+        },
+        "todoProcessor": {
+          "deploymentBucketName": "amplify-testaws-dev-d9a06-deployment",
+          "s3Key": "amplify-builds/todoProcessor-4c71375579586b635672-build.zip"
         }
       },
       "storage": {

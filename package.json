@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-amplify/api-graphql": "^4.8.5",
+    "@aws-amplify/datastore": "^5.1.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
