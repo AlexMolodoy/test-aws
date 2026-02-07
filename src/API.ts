@@ -2,32 +2,20 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CompletionResult = {
-  __typename: "CompletionResult",
-  id: string,
-  completed: boolean,
-  message: string,
-};
-
 export type CreateTodoInput = {
   id?: string | null,
   name: string,
   description?: string | null,
-  completed: boolean,
-  createdAt?: string | null,
-  updatedAt?: string | null,
 };
 
 export type ModelTodoConditionInput = {
   name?: ModelStringInput | null,
   description?: ModelStringInput | null,
-  completed?: ModelBooleanInput | null,
-  createdAt?: ModelStringInput | null,
-  updatedAt?: ModelStringInput | null,
   and?: Array< ModelTodoConditionInput | null > | null,
   or?: Array< ModelTodoConditionInput | null > | null,
   not?: ModelTodoConditionInput | null,
-  owner?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
 };
 
 export type ModelStringInput = {
@@ -70,79 +58,22 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type ModelBooleanInput = {
-  ne?: boolean | null,
-  eq?: boolean | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-};
-
 export type Todo = {
   __typename: "Todo",
   id: string,
   name: string,
   description?: string | null,
-  completed: boolean,
   createdAt: string,
   updatedAt: string,
-  owner?: string | null,
 };
 
 export type UpdateTodoInput = {
   id: string,
   name?: string | null,
   description?: string | null,
-  completed?: boolean | null,
-  createdAt?: string | null,
-  updatedAt?: string | null,
 };
 
 export type DeleteTodoInput = {
-  id: string,
-};
-
-export type CreateNoteInput = {
-  id?: string | null,
-  title: string,
-  content: string,
-  tags?: Array< string | null > | null,
-  createdAt?: string | null,
-  updatedAt?: string | null,
-};
-
-export type ModelNoteConditionInput = {
-  title?: ModelStringInput | null,
-  content?: ModelStringInput | null,
-  tags?: ModelStringInput | null,
-  createdAt?: ModelStringInput | null,
-  updatedAt?: ModelStringInput | null,
-  and?: Array< ModelNoteConditionInput | null > | null,
-  or?: Array< ModelNoteConditionInput | null > | null,
-  not?: ModelNoteConditionInput | null,
-  owner?: ModelStringInput | null,
-};
-
-export type Note = {
-  __typename: "Note",
-  id: string,
-  title: string,
-  content: string,
-  tags?: Array< string | null > | null,
-  createdAt: string,
-  updatedAt: string,
-  owner?: string | null,
-};
-
-export type UpdateNoteInput = {
-  id: string,
-  title?: string | null,
-  content?: string | null,
-  tags?: Array< string | null > | null,
-  createdAt?: string | null,
-  updatedAt?: string | null,
-};
-
-export type DeleteNoteInput = {
   id: string,
 };
 
@@ -150,13 +81,7 @@ export type CreateUserInput = {
   id?: string | null,
   username: string,
   email: string,
-  profile?: UserProfileInput | null,
-};
-
-export type UserProfileInput = {
-  firstName?: string | null,
-  lastName?: string | null,
-  avatar?: string | null,
+  userProfileId?: string | null,
 };
 
 export type ModelUserConditionInput = {
@@ -167,54 +92,7 @@ export type ModelUserConditionInput = {
   not?: ModelUserConditionInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
-  owner?: ModelStringInput | null,
-};
-
-export type User = {
-  __typename: "User",
-  id: string,
-  username: string,
-  email: string,
-  profile?: UserProfile | null,
-  createdAt: string,
-  updatedAt: string,
-  owner?: string | null,
-};
-
-export type UserProfile = {
-  __typename: "UserProfile",
-  firstName?: string | null,
-  lastName?: string | null,
-  avatar?: string | null,
-};
-
-export type UpdateUserInput = {
-  id: string,
-  username?: string | null,
-  email?: string | null,
-  profile?: UserProfileInput | null,
-};
-
-export type DeleteUserInput = {
-  id: string,
-};
-
-export type ProcessResult = {
-  __typename: "ProcessResult",
-  message: string,
-  count: number,
-};
-
-export type ModelTodoFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  completed?: ModelBooleanInput | null,
-  createdAt?: ModelStringInput | null,
-  updatedAt?: ModelStringInput | null,
-  and?: Array< ModelTodoFilterInput | null > | null,
-  or?: Array< ModelTodoFilterInput | null > | null,
-  not?: ModelTodoFilterInput | null,
+  userProfileId?: ModelIDInput | null,
   owner?: ModelStringInput | null,
 };
 
@@ -234,28 +112,138 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type ModelTodoConnection = {
-  __typename: "ModelTodoConnection",
-  items:  Array<Todo | null >,
+export type User = {
+  __typename: "User",
+  id: string,
+  username: string,
+  email: string,
+  profile?: Profile | null,
+  posts?: ModelPostConnection | null,
+  createdAt: string,
+  updatedAt: string,
+  userProfileId?: string | null,
+  owner?: string | null,
+};
+
+export type Profile = {
+  __typename: "Profile",
+  id: string,
+  bio?: string | null,
+  avatar?: string | null,
+  user?: User | null,
+  createdAt: string,
+  updatedAt: string,
+  profileUserId?: string | null,
+  owner?: string | null,
+};
+
+export type ModelPostConnection = {
+  __typename: "ModelPostConnection",
+  items:  Array<Post | null >,
   nextToken?: string | null,
 };
 
-export type ModelNoteFilterInput = {
-  id?: ModelIDInput | null,
-  title?: ModelStringInput | null,
-  content?: ModelStringInput | null,
-  tags?: ModelStringInput | null,
+export type Post = {
+  __typename: "Post",
+  id: string,
+  title: string,
+  content: string,
+  mediaFiles?: Array< string | null > | null,
+  user?: User | null,
+  createdAt: string,
+  updatedAt: string,
+  userPostsId?: string | null,
+  owner?: string | null,
+};
+
+export type UpdateUserInput = {
+  id: string,
+  username?: string | null,
+  email?: string | null,
+  userProfileId?: string | null,
+};
+
+export type DeleteUserInput = {
+  id: string,
+};
+
+export type CreateProfileInput = {
+  id?: string | null,
+  bio?: string | null,
+  avatar?: string | null,
+  profileUserId?: string | null,
+};
+
+export type ModelProfileConditionInput = {
+  bio?: ModelStringInput | null,
+  avatar?: ModelStringInput | null,
+  and?: Array< ModelProfileConditionInput | null > | null,
+  or?: Array< ModelProfileConditionInput | null > | null,
+  not?: ModelProfileConditionInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
-  and?: Array< ModelNoteFilterInput | null > | null,
-  or?: Array< ModelNoteFilterInput | null > | null,
-  not?: ModelNoteFilterInput | null,
+  profileUserId?: ModelIDInput | null,
   owner?: ModelStringInput | null,
 };
 
-export type ModelNoteConnection = {
-  __typename: "ModelNoteConnection",
-  items:  Array<Note | null >,
+export type UpdateProfileInput = {
+  id: string,
+  bio?: string | null,
+  avatar?: string | null,
+  profileUserId?: string | null,
+};
+
+export type DeleteProfileInput = {
+  id: string,
+};
+
+export type CreatePostInput = {
+  id?: string | null,
+  title: string,
+  content: string,
+  mediaFiles?: Array< string | null > | null,
+  userPostsId?: string | null,
+};
+
+export type ModelPostConditionInput = {
+  title?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  mediaFiles?: ModelStringInput | null,
+  and?: Array< ModelPostConditionInput | null > | null,
+  or?: Array< ModelPostConditionInput | null > | null,
+  not?: ModelPostConditionInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  userPostsId?: ModelIDInput | null,
+  owner?: ModelStringInput | null,
+};
+
+export type UpdatePostInput = {
+  id: string,
+  title?: string | null,
+  content?: string | null,
+  mediaFiles?: Array< string | null > | null,
+  userPostsId?: string | null,
+};
+
+export type DeletePostInput = {
+  id: string,
+};
+
+export type ModelTodoFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelTodoFilterInput | null > | null,
+  or?: Array< ModelTodoFilterInput | null > | null,
+  not?: ModelTodoFilterInput | null,
+};
+
+export type ModelTodoConnection = {
+  __typename: "ModelTodoConnection",
+  items:  Array<Todo | null >,
   nextToken?: string | null,
 };
 
@@ -268,6 +256,7 @@ export type ModelUserFilterInput = {
   and?: Array< ModelUserFilterInput | null > | null,
   or?: Array< ModelUserFilterInput | null > | null,
   not?: ModelUserFilterInput | null,
+  userProfileId?: ModelIDInput | null,
   owner?: ModelStringInput | null,
 };
 
@@ -277,16 +266,47 @@ export type ModelUserConnection = {
   nextToken?: string | null,
 };
 
+export type ModelProfileFilterInput = {
+  id?: ModelIDInput | null,
+  bio?: ModelStringInput | null,
+  avatar?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelProfileFilterInput | null > | null,
+  or?: Array< ModelProfileFilterInput | null > | null,
+  not?: ModelProfileFilterInput | null,
+  profileUserId?: ModelIDInput | null,
+  owner?: ModelStringInput | null,
+};
+
+export type ModelProfileConnection = {
+  __typename: "ModelProfileConnection",
+  items:  Array<Profile | null >,
+  nextToken?: string | null,
+};
+
+export type ModelPostFilterInput = {
+  id?: ModelIDInput | null,
+  title?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  mediaFiles?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelPostFilterInput | null > | null,
+  or?: Array< ModelPostFilterInput | null > | null,
+  not?: ModelPostFilterInput | null,
+  userPostsId?: ModelIDInput | null,
+  owner?: ModelStringInput | null,
+};
+
 export type ModelSubscriptionTodoFilterInput = {
   id?: ModelSubscriptionIDInput | null,
   name?: ModelSubscriptionStringInput | null,
   description?: ModelSubscriptionStringInput | null,
-  completed?: ModelSubscriptionBooleanInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionTodoFilterInput | null > | null,
   or?: Array< ModelSubscriptionTodoFilterInput | null > | null,
-  owner?: ModelStringInput | null,
 };
 
 export type ModelSubscriptionIDInput = {
@@ -319,23 +339,6 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
-export type ModelSubscriptionBooleanInput = {
-  ne?: boolean | null,
-  eq?: boolean | null,
-};
-
-export type ModelSubscriptionNoteFilterInput = {
-  id?: ModelSubscriptionIDInput | null,
-  title?: ModelSubscriptionStringInput | null,
-  content?: ModelSubscriptionStringInput | null,
-  tags?: ModelSubscriptionStringInput | null,
-  createdAt?: ModelSubscriptionStringInput | null,
-  updatedAt?: ModelSubscriptionStringInput | null,
-  and?: Array< ModelSubscriptionNoteFilterInput | null > | null,
-  or?: Array< ModelSubscriptionNoteFilterInput | null > | null,
-  owner?: ModelStringInput | null,
-};
-
 export type ModelSubscriptionUserFilterInput = {
   id?: ModelSubscriptionIDInput | null,
   username?: ModelSubscriptionStringInput | null,
@@ -344,20 +347,33 @@ export type ModelSubscriptionUserFilterInput = {
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionUserFilterInput | null > | null,
   or?: Array< ModelSubscriptionUserFilterInput | null > | null,
+  userPostsId?: ModelSubscriptionIDInput | null,
+  userProfileId?: ModelSubscriptionIDInput | null,
   owner?: ModelStringInput | null,
 };
 
-export type CompleteTodoMutationVariables = {
-  id: string,
+export type ModelSubscriptionProfileFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  bio?: ModelSubscriptionStringInput | null,
+  avatar?: ModelSubscriptionStringInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionProfileFilterInput | null > | null,
+  or?: Array< ModelSubscriptionProfileFilterInput | null > | null,
+  profileUserId?: ModelSubscriptionIDInput | null,
+  owner?: ModelStringInput | null,
 };
 
-export type CompleteTodoMutation = {
-  completeTodo?:  {
-    __typename: "CompletionResult",
-    id: string,
-    completed: boolean,
-    message: string,
-  } | null,
+export type ModelSubscriptionPostFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  title?: ModelSubscriptionStringInput | null,
+  content?: ModelSubscriptionStringInput | null,
+  mediaFiles?: ModelSubscriptionStringInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionPostFilterInput | null > | null,
+  or?: Array< ModelSubscriptionPostFilterInput | null > | null,
+  owner?: ModelStringInput | null,
 };
 
 export type CreateTodoMutationVariables = {
@@ -371,10 +387,8 @@ export type CreateTodoMutation = {
     id: string,
     name: string,
     description?: string | null,
-    completed: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -389,10 +403,8 @@ export type UpdateTodoMutation = {
     id: string,
     name: string,
     description?: string | null,
-    completed: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -407,64 +419,8 @@ export type DeleteTodoMutation = {
     id: string,
     name: string,
     description?: string | null,
-    completed: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
-  } | null,
-};
-
-export type CreateNoteMutationVariables = {
-  input: CreateNoteInput,
-  condition?: ModelNoteConditionInput | null,
-};
-
-export type CreateNoteMutation = {
-  createNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    tags?: Array< string | null > | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
-  } | null,
-};
-
-export type UpdateNoteMutationVariables = {
-  input: UpdateNoteInput,
-  condition?: ModelNoteConditionInput | null,
-};
-
-export type UpdateNoteMutation = {
-  updateNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    tags?: Array< string | null > | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
-  } | null,
-};
-
-export type DeleteNoteMutationVariables = {
-  input: DeleteNoteInput,
-  condition?: ModelNoteConditionInput | null,
-};
-
-export type DeleteNoteMutation = {
-  deleteNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    tags?: Array< string | null > | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -480,13 +436,22 @@ export type CreateUserMutation = {
     username: string,
     email: string,
     profile?:  {
-      __typename: "UserProfile",
-      firstName?: string | null,
-      lastName?: string | null,
+      __typename: "Profile",
+      id: string,
+      bio?: string | null,
       avatar?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      profileUserId?: string | null,
+      owner?: string | null,
+    } | null,
+    posts?:  {
+      __typename: "ModelPostConnection",
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
+    userProfileId?: string | null,
     owner?: string | null,
   } | null,
 };
@@ -503,13 +468,22 @@ export type UpdateUserMutation = {
     username: string,
     email: string,
     profile?:  {
-      __typename: "UserProfile",
-      firstName?: string | null,
-      lastName?: string | null,
+      __typename: "Profile",
+      id: string,
+      bio?: string | null,
       avatar?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      profileUserId?: string | null,
+      owner?: string | null,
+    } | null,
+    posts?:  {
+      __typename: "ModelPostConnection",
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
+    userProfileId?: string | null,
     owner?: string | null,
   } | null,
 };
@@ -526,26 +500,194 @@ export type DeleteUserMutation = {
     username: string,
     email: string,
     profile?:  {
-      __typename: "UserProfile",
-      firstName?: string | null,
-      lastName?: string | null,
+      __typename: "Profile",
+      id: string,
+      bio?: string | null,
       avatar?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      profileUserId?: string | null,
+      owner?: string | null,
+    } | null,
+    posts?:  {
+      __typename: "ModelPostConnection",
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
+    userProfileId?: string | null,
     owner?: string | null,
   } | null,
 };
 
-export type ProcessTodosQueryVariables = {
-  limit?: number | null,
+export type CreateProfileMutationVariables = {
+  input: CreateProfileInput,
+  condition?: ModelProfileConditionInput | null,
 };
 
-export type ProcessTodosQuery = {
-  processTodos?:  {
-    __typename: "ProcessResult",
-    message: string,
-    count: number,
+export type CreateProfileMutation = {
+  createProfile?:  {
+    __typename: "Profile",
+    id: string,
+    bio?: string | null,
+    avatar?: string | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    profileUserId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type UpdateProfileMutationVariables = {
+  input: UpdateProfileInput,
+  condition?: ModelProfileConditionInput | null,
+};
+
+export type UpdateProfileMutation = {
+  updateProfile?:  {
+    __typename: "Profile",
+    id: string,
+    bio?: string | null,
+    avatar?: string | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    profileUserId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type DeleteProfileMutationVariables = {
+  input: DeleteProfileInput,
+  condition?: ModelProfileConditionInput | null,
+};
+
+export type DeleteProfileMutation = {
+  deleteProfile?:  {
+    __typename: "Profile",
+    id: string,
+    bio?: string | null,
+    avatar?: string | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    profileUserId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type CreatePostMutationVariables = {
+  input: CreatePostInput,
+  condition?: ModelPostConditionInput | null,
+};
+
+export type CreatePostMutation = {
+  createPost?:  {
+    __typename: "Post",
+    id: string,
+    title: string,
+    content: string,
+    mediaFiles?: Array< string | null > | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userPostsId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type UpdatePostMutationVariables = {
+  input: UpdatePostInput,
+  condition?: ModelPostConditionInput | null,
+};
+
+export type UpdatePostMutation = {
+  updatePost?:  {
+    __typename: "Post",
+    id: string,
+    title: string,
+    content: string,
+    mediaFiles?: Array< string | null > | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userPostsId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type DeletePostMutationVariables = {
+  input: DeletePostInput,
+  condition?: ModelPostConditionInput | null,
+};
+
+export type DeletePostMutation = {
+  deletePost?:  {
+    __typename: "Post",
+    id: string,
+    title: string,
+    content: string,
+    mediaFiles?: Array< string | null > | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userPostsId?: string | null,
+    owner?: string | null,
   } | null,
 };
 
@@ -559,10 +701,8 @@ export type GetTodoQuery = {
     id: string,
     name: string,
     description?: string | null,
-    completed: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -580,50 +720,8 @@ export type ListTodosQuery = {
       id: string,
       name: string,
       description?: string | null,
-      completed: boolean,
       createdAt: string,
       updatedAt: string,
-      owner?: string | null,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type GetNoteQueryVariables = {
-  id: string,
-};
-
-export type GetNoteQuery = {
-  getNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    tags?: Array< string | null > | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
-  } | null,
-};
-
-export type ListNotesQueryVariables = {
-  filter?: ModelNoteFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListNotesQuery = {
-  listNotes?:  {
-    __typename: "ModelNoteConnection",
-    items:  Array< {
-      __typename: "Note",
-      id: string,
-      title: string,
-      content: string,
-      tags?: Array< string | null > | null,
-      createdAt: string,
-      updatedAt: string,
-      owner?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -640,13 +738,22 @@ export type GetUserQuery = {
     username: string,
     email: string,
     profile?:  {
-      __typename: "UserProfile",
-      firstName?: string | null,
-      lastName?: string | null,
+      __typename: "Profile",
+      id: string,
+      bio?: string | null,
       avatar?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      profileUserId?: string | null,
+      owner?: string | null,
+    } | null,
+    posts?:  {
+      __typename: "ModelPostConnection",
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
+    userProfileId?: string | null,
     owner?: string | null,
   } | null,
 };
@@ -667,6 +774,109 @@ export type ListUsersQuery = {
       email: string,
       createdAt: string,
       updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetProfileQueryVariables = {
+  id: string,
+};
+
+export type GetProfileQuery = {
+  getProfile?:  {
+    __typename: "Profile",
+    id: string,
+    bio?: string | null,
+    avatar?: string | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    profileUserId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type ListProfilesQueryVariables = {
+  filter?: ModelProfileFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListProfilesQuery = {
+  listProfiles?:  {
+    __typename: "ModelProfileConnection",
+    items:  Array< {
+      __typename: "Profile",
+      id: string,
+      bio?: string | null,
+      avatar?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      profileUserId?: string | null,
+      owner?: string | null,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetPostQueryVariables = {
+  id: string,
+};
+
+export type GetPostQuery = {
+  getPost?:  {
+    __typename: "Post",
+    id: string,
+    title: string,
+    content: string,
+    mediaFiles?: Array< string | null > | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userPostsId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type ListPostsQueryVariables = {
+  filter?: ModelPostFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListPostsQuery = {
+  listPosts?:  {
+    __typename: "ModelPostConnection",
+    items:  Array< {
+      __typename: "Post",
+      id: string,
+      title: string,
+      content: string,
+      mediaFiles?: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      userPostsId?: string | null,
       owner?: string | null,
     } | null >,
     nextToken?: string | null,
@@ -675,7 +885,6 @@ export type ListUsersQuery = {
 
 export type OnCreateTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnCreateTodoSubscription = {
@@ -684,16 +893,13 @@ export type OnCreateTodoSubscription = {
     id: string,
     name: string,
     description?: string | null,
-    completed: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
 export type OnUpdateTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnUpdateTodoSubscription = {
@@ -702,16 +908,13 @@ export type OnUpdateTodoSubscription = {
     id: string,
     name: string,
     description?: string | null,
-    completed: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
 export type OnDeleteTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
-  owner?: string | null,
 };
 
 export type OnDeleteTodoSubscription = {
@@ -720,64 +923,8 @@ export type OnDeleteTodoSubscription = {
     id: string,
     name: string,
     description?: string | null,
-    completed: boolean,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
-  } | null,
-};
-
-export type OnCreateNoteSubscriptionVariables = {
-  filter?: ModelSubscriptionNoteFilterInput | null,
-  owner?: string | null,
-};
-
-export type OnCreateNoteSubscription = {
-  onCreateNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    tags?: Array< string | null > | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
-  } | null,
-};
-
-export type OnUpdateNoteSubscriptionVariables = {
-  filter?: ModelSubscriptionNoteFilterInput | null,
-  owner?: string | null,
-};
-
-export type OnUpdateNoteSubscription = {
-  onUpdateNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    tags?: Array< string | null > | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
-  } | null,
-};
-
-export type OnDeleteNoteSubscriptionVariables = {
-  filter?: ModelSubscriptionNoteFilterInput | null,
-  owner?: string | null,
-};
-
-export type OnDeleteNoteSubscription = {
-  onDeleteNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    tags?: Array< string | null > | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -793,13 +940,22 @@ export type OnCreateUserSubscription = {
     username: string,
     email: string,
     profile?:  {
-      __typename: "UserProfile",
-      firstName?: string | null,
-      lastName?: string | null,
+      __typename: "Profile",
+      id: string,
+      bio?: string | null,
       avatar?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      profileUserId?: string | null,
+      owner?: string | null,
+    } | null,
+    posts?:  {
+      __typename: "ModelPostConnection",
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
+    userProfileId?: string | null,
     owner?: string | null,
   } | null,
 };
@@ -816,13 +972,22 @@ export type OnUpdateUserSubscription = {
     username: string,
     email: string,
     profile?:  {
-      __typename: "UserProfile",
-      firstName?: string | null,
-      lastName?: string | null,
+      __typename: "Profile",
+      id: string,
+      bio?: string | null,
       avatar?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      profileUserId?: string | null,
+      owner?: string | null,
+    } | null,
+    posts?:  {
+      __typename: "ModelPostConnection",
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
+    userProfileId?: string | null,
     owner?: string | null,
   } | null,
 };
@@ -839,13 +1004,193 @@ export type OnDeleteUserSubscription = {
     username: string,
     email: string,
     profile?:  {
-      __typename: "UserProfile",
-      firstName?: string | null,
-      lastName?: string | null,
+      __typename: "Profile",
+      id: string,
+      bio?: string | null,
       avatar?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      profileUserId?: string | null,
+      owner?: string | null,
+    } | null,
+    posts?:  {
+      __typename: "ModelPostConnection",
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
+    userProfileId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type OnCreateProfileSubscriptionVariables = {
+  filter?: ModelSubscriptionProfileFilterInput | null,
+  owner?: string | null,
+};
+
+export type OnCreateProfileSubscription = {
+  onCreateProfile?:  {
+    __typename: "Profile",
+    id: string,
+    bio?: string | null,
+    avatar?: string | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    profileUserId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type OnUpdateProfileSubscriptionVariables = {
+  filter?: ModelSubscriptionProfileFilterInput | null,
+  owner?: string | null,
+};
+
+export type OnUpdateProfileSubscription = {
+  onUpdateProfile?:  {
+    __typename: "Profile",
+    id: string,
+    bio?: string | null,
+    avatar?: string | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    profileUserId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type OnDeleteProfileSubscriptionVariables = {
+  filter?: ModelSubscriptionProfileFilterInput | null,
+  owner?: string | null,
+};
+
+export type OnDeleteProfileSubscription = {
+  onDeleteProfile?:  {
+    __typename: "Profile",
+    id: string,
+    bio?: string | null,
+    avatar?: string | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    profileUserId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type OnCreatePostSubscriptionVariables = {
+  filter?: ModelSubscriptionPostFilterInput | null,
+  owner?: string | null,
+};
+
+export type OnCreatePostSubscription = {
+  onCreatePost?:  {
+    __typename: "Post",
+    id: string,
+    title: string,
+    content: string,
+    mediaFiles?: Array< string | null > | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userPostsId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type OnUpdatePostSubscriptionVariables = {
+  filter?: ModelSubscriptionPostFilterInput | null,
+  owner?: string | null,
+};
+
+export type OnUpdatePostSubscription = {
+  onUpdatePost?:  {
+    __typename: "Post",
+    id: string,
+    title: string,
+    content: string,
+    mediaFiles?: Array< string | null > | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userPostsId?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
+export type OnDeletePostSubscriptionVariables = {
+  filter?: ModelSubscriptionPostFilterInput | null,
+  owner?: string | null,
+};
+
+export type OnDeletePostSubscription = {
+  onDeletePost?:  {
+    __typename: "Post",
+    id: string,
+    title: string,
+    content: string,
+    mediaFiles?: Array< string | null > | null,
+    user?:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string,
+      createdAt: string,
+      updatedAt: string,
+      userProfileId?: string | null,
+      owner?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userPostsId?: string | null,
     owner?: string | null,
   } | null,
 };

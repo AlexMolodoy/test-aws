@@ -7,7 +7,7 @@
             "UserPoolId"
           ],
           "category": "auth",
-          "resourceName": "testawsf1a2e31c"
+          "resourceName": "testawsfeda2c60"
         }
       ],
       "output": {
@@ -16,7 +16,7 @@
             {
               "authenticationType": "AMAZON_COGNITO_USER_POOLS",
               "userPoolConfig": {
-                "userPoolId": "authtestawsf1a2e31c"
+                "userPoolId": "authtestawsfeda2c60"
               }
             }
           ],
@@ -33,7 +33,7 @@
     }
   },
   "auth": {
-    "testawsf1a2e31c": {
+    "testawsfeda2c60": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -49,9 +49,7 @@
           "EMAIL"
         ],
         "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
@@ -61,75 +59,32 @@
     }
   },
   "function": {
-    "S3Trigger67fef03a": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "testawsfe5d5ede": {
-      "build": true,
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "todoProcessor": {
+    "testaws2762fb8f": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_S3Trigger67fef03a_deploymentBucketName": {
+    "AMPLIFY_function_testaws2762fb8f_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "S3Trigger67fef03a"
+          "resourceName": "testaws2762fb8f"
         }
       ]
     },
-    "AMPLIFY_function_S3Trigger67fef03a_s3Key": {
+    "AMPLIFY_function_testaws2762fb8f_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "S3Trigger67fef03a"
-        }
-      ]
-    },
-    "AMPLIFY_function_testawsfe5d5ede_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "testawsfe5d5ede"
-        }
-      ]
-    },
-    "AMPLIFY_function_testawsfe5d5ede_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "testawsfe5d5ede"
-        }
-      ]
-    },
-    "AMPLIFY_function_todoProcessor_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "todoProcessor"
-        }
-      ]
-    },
-    "AMPLIFY_function_todoProcessor_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "todoProcessor"
+          "resourceName": "testaws2762fb8f"
         }
       ]
     }
   },
   "storage": {
-    "TestAWSS3Bucket": {
+    "s363d9fcbc": {
       "dependsOn": [
         {
           "attributes": [
@@ -138,7 +93,7 @@
             "LambdaExecutionRole"
           ],
           "category": "function",
-          "resourceName": "S3Trigger67fef03a"
+          "resourceName": "testaws2762fb8f"
         }
       ],
       "providerPlugin": "awscloudformation",

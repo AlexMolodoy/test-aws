@@ -8,18 +8,6 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
-export const completeTodo = /* GraphQL */ `mutation CompleteTodo($id: ID!) {
-  completeTodo(id: $id) {
-    id
-    completed
-    message
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CompleteTodoMutationVariables,
-  APITypes.CompleteTodoMutation
->;
 export const createTodo = /* GraphQL */ `mutation CreateTodo(
   $input: CreateTodoInput!
   $condition: ModelTodoConditionInput
@@ -28,10 +16,8 @@ export const createTodo = /* GraphQL */ `mutation CreateTodo(
     id
     name
     description
-    completed
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -47,10 +33,8 @@ export const updateTodo = /* GraphQL */ `mutation UpdateTodo(
     id
     name
     description
-    completed
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -66,73 +50,14 @@ export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
     id
     name
     description
-    completed
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
 ` as GeneratedMutation<
   APITypes.DeleteTodoMutationVariables,
   APITypes.DeleteTodoMutation
->;
-export const createNote = /* GraphQL */ `mutation CreateNote(
-  $input: CreateNoteInput!
-  $condition: ModelNoteConditionInput
-) {
-  createNote(input: $input, condition: $condition) {
-    id
-    title
-    content
-    tags
-    createdAt
-    updatedAt
-    owner
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateNoteMutationVariables,
-  APITypes.CreateNoteMutation
->;
-export const updateNote = /* GraphQL */ `mutation UpdateNote(
-  $input: UpdateNoteInput!
-  $condition: ModelNoteConditionInput
-) {
-  updateNote(input: $input, condition: $condition) {
-    id
-    title
-    content
-    tags
-    createdAt
-    updatedAt
-    owner
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateNoteMutationVariables,
-  APITypes.UpdateNoteMutation
->;
-export const deleteNote = /* GraphQL */ `mutation DeleteNote(
-  $input: DeleteNoteInput!
-  $condition: ModelNoteConditionInput
-) {
-  deleteNote(input: $input, condition: $condition) {
-    id
-    title
-    content
-    tags
-    createdAt
-    updatedAt
-    owner
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteNoteMutationVariables,
-  APITypes.DeleteNoteMutation
 >;
 export const createUser = /* GraphQL */ `mutation CreateUser(
   $input: CreateUserInput!
@@ -143,13 +68,22 @@ export const createUser = /* GraphQL */ `mutation CreateUser(
     username
     email
     profile {
-      firstName
-      lastName
+      id
+      bio
       avatar
+      createdAt
+      updatedAt
+      profileUserId
+      owner
+      __typename
+    }
+    posts {
+      nextToken
       __typename
     }
     createdAt
     updatedAt
+    userProfileId
     owner
     __typename
   }
@@ -167,13 +101,22 @@ export const updateUser = /* GraphQL */ `mutation UpdateUser(
     username
     email
     profile {
-      firstName
-      lastName
+      id
+      bio
       avatar
+      createdAt
+      updatedAt
+      profileUserId
+      owner
+      __typename
+    }
+    posts {
+      nextToken
       __typename
     }
     createdAt
     updatedAt
+    userProfileId
     owner
     __typename
   }
@@ -191,13 +134,22 @@ export const deleteUser = /* GraphQL */ `mutation DeleteUser(
     username
     email
     profile {
-      firstName
-      lastName
+      id
+      bio
       avatar
+      createdAt
+      updatedAt
+      profileUserId
+      owner
+      __typename
+    }
+    posts {
+      nextToken
       __typename
     }
     createdAt
     updatedAt
+    userProfileId
     owner
     __typename
   }
@@ -205,4 +157,181 @@ export const deleteUser = /* GraphQL */ `mutation DeleteUser(
 ` as GeneratedMutation<
   APITypes.DeleteUserMutationVariables,
   APITypes.DeleteUserMutation
+>;
+export const createProfile = /* GraphQL */ `mutation CreateProfile(
+  $input: CreateProfileInput!
+  $condition: ModelProfileConditionInput
+) {
+  createProfile(input: $input, condition: $condition) {
+    id
+    bio
+    avatar
+    user {
+      id
+      username
+      email
+      createdAt
+      updatedAt
+      userProfileId
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    profileUserId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateProfileMutationVariables,
+  APITypes.CreateProfileMutation
+>;
+export const updateProfile = /* GraphQL */ `mutation UpdateProfile(
+  $input: UpdateProfileInput!
+  $condition: ModelProfileConditionInput
+) {
+  updateProfile(input: $input, condition: $condition) {
+    id
+    bio
+    avatar
+    user {
+      id
+      username
+      email
+      createdAt
+      updatedAt
+      userProfileId
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    profileUserId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateProfileMutationVariables,
+  APITypes.UpdateProfileMutation
+>;
+export const deleteProfile = /* GraphQL */ `mutation DeleteProfile(
+  $input: DeleteProfileInput!
+  $condition: ModelProfileConditionInput
+) {
+  deleteProfile(input: $input, condition: $condition) {
+    id
+    bio
+    avatar
+    user {
+      id
+      username
+      email
+      createdAt
+      updatedAt
+      userProfileId
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    profileUserId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteProfileMutationVariables,
+  APITypes.DeleteProfileMutation
+>;
+export const createPost = /* GraphQL */ `mutation CreatePost(
+  $input: CreatePostInput!
+  $condition: ModelPostConditionInput
+) {
+  createPost(input: $input, condition: $condition) {
+    id
+    title
+    content
+    mediaFiles
+    user {
+      id
+      username
+      email
+      createdAt
+      updatedAt
+      userProfileId
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    userPostsId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreatePostMutationVariables,
+  APITypes.CreatePostMutation
+>;
+export const updatePost = /* GraphQL */ `mutation UpdatePost(
+  $input: UpdatePostInput!
+  $condition: ModelPostConditionInput
+) {
+  updatePost(input: $input, condition: $condition) {
+    id
+    title
+    content
+    mediaFiles
+    user {
+      id
+      username
+      email
+      createdAt
+      updatedAt
+      userProfileId
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    userPostsId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdatePostMutationVariables,
+  APITypes.UpdatePostMutation
+>;
+export const deletePost = /* GraphQL */ `mutation DeletePost(
+  $input: DeletePostInput!
+  $condition: ModelPostConditionInput
+) {
+  deletePost(input: $input, condition: $condition) {
+    id
+    title
+    content
+    mediaFiles
+    user {
+      id
+      username
+      email
+      createdAt
+      updatedAt
+      userProfileId
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    userPostsId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeletePostMutationVariables,
+  APITypes.DeletePostMutation
 >;

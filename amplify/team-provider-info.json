@@ -1,39 +1,31 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-testaws-dev-d9a06-authRole",
-      "UnauthRoleArn": "arn:aws:iam::907244239785:role/amplify-testaws-dev-d9a06-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::907244239785:role/amplify-testaws-dev-d9a06-authRole",
+      "AuthRoleName": "amplify-testaws-dev-bd02b-authRole",
+      "UnauthRoleArn": "arn:aws:iam::907244239785:role/amplify-testaws-dev-bd02b-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::907244239785:role/amplify-testaws-dev-bd02b-authRole",
       "Region": "eu-central-1",
-      "DeploymentBucketName": "amplify-testaws-dev-d9a06-deployment",
-      "UnauthRoleName": "amplify-testaws-dev-d9a06-unauthRole",
-      "StackName": "amplify-testaws-dev-d9a06",
-      "StackId": "arn:aws:cloudformation:eu-central-1:907244239785:stack/amplify-testaws-dev-d9a06/7a42a880-0289-11f1-8578-0a979ee36d71",
-      "AmplifyAppId": "d376humgbrmeoh"
+      "DeploymentBucketName": "amplify-testaws-dev-bd02b-deployment",
+      "UnauthRoleName": "amplify-testaws-dev-bd02b-unauthRole",
+      "StackName": "amplify-testaws-dev-bd02b",
+      "StackId": "arn:aws:cloudformation:eu-central-1:907244239785:stack/amplify-testaws-dev-bd02b/d810bd10-0362-11f1-9001-02702be7f71d",
+      "AmplifyAppId": "d396g167jnpiod"
     },
     "categories": {
       "auth": {
-        "testawsf1a2e31c": {}
+        "testawsfeda2c60": {}
       },
       "function": {
-        "testawsfe5d5ede": {
-          "deploymentBucketName": "amplify-testaws-dev-d9a06-deployment",
-          "s3Key": "amplify-builds/testawsfe5d5ede-3359384b42774e384971-build.zip"
-        },
-        "S3Trigger67fef03a": {
-          "deploymentBucketName": "amplify-testaws-dev-d9a06-deployment",
-          "s3Key": "amplify-builds/S3Trigger67fef03a-716268656937376e2b75-build.zip"
-        },
-        "todoProcessor": {
-          "deploymentBucketName": "amplify-testaws-dev-d9a06-deployment",
-          "s3Key": "amplify-builds/todoProcessor-4c71375579586b635672-build.zip"
+        "testaws2762fb8f": {
+          "deploymentBucketName": "amplify-testaws-dev-bd02b-deployment",
+          "s3Key": "amplify-builds/testaws2762fb8f-6f5a687646573347534a-build.zip"
         }
-      },
-      "storage": {
-        "TestAWSS3Bucket": {}
       },
       "api": {
         "testaws": {}
+      },
+      "storage": {
+        "s363d9fcbc": {}
       }
     }
   }

@@ -1,50 +1,32 @@
-type Todo @model @auth(rules: [{allow: owner}]) {
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type Todo @model {
   id: ID!
   name: String!
   description: String
-  completed: Boolean!
-  createdAt: AWSDateTime!
-  updatedAt: AWSDateTime!
-}
-
-type Note @model @auth(rules: [{allow: owner}]) {
-  id: ID!
-  title: String!
-  content: String!
-  tags: [String]
-  createdAt: AWSDateTime!
-  updatedAt: AWSDateTime!
 }
 
 type User @model @auth(rules: [{allow: owner}]) {
   id: ID!
   username: String!
   email: String!
-  profile: UserProfile
+  profile: Profile @hasOne
+  posts: [Post] @hasMany
 }
 
-type UserProfile {
-  firstName: String
-  lastName: String
-  avatar: String
-}
-
-type ProcessResult {
-  message: String!
-  count: Int!
-}
-
-type CompletionResult {
+type Profile @model @auth(rules: [{allow: owner}]) {
   id: ID!
-  completed: Boolean!
-  message: String!
+  bio: String
+  avatar: String
+  user: User @belongsTo
 }
 
-type Query {
-  processTodos(limit: Int): ProcessResult @function(name: "todoProcessor-${env}")
+type Post @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  title: String!
+  content: String!
+  mediaFiles: [String]
+  user: User @belongsTo
 }
-
-type Mutation {
-  completeTodo(id: ID!): CompletionResult @function(name: "todoProcessor-${env}")
-}
-

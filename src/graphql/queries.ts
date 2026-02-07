@@ -8,26 +8,13 @@ type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryOutput: OutputType;
 };
 
-export const processTodos = /* GraphQL */ `query ProcessTodos($limit: Int) {
-  processTodos(limit: $limit) {
-    message
-    count
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.ProcessTodosQueryVariables,
-  APITypes.ProcessTodosQuery
->;
 export const getTodo = /* GraphQL */ `query GetTodo($id: ID!) {
   getTodo(id: $id) {
     id
     name
     description
-    completed
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -42,10 +29,8 @@ export const listTodos = /* GraphQL */ `query ListTodos(
       id
       name
       description
-      completed
       createdAt
       updatedAt
-      owner
       __typename
     }
     nextToken
@@ -53,53 +38,28 @@ export const listTodos = /* GraphQL */ `query ListTodos(
   }
 }
 ` as GeneratedQuery<APITypes.ListTodosQueryVariables, APITypes.ListTodosQuery>;
-export const getNote = /* GraphQL */ `query GetNote($id: ID!) {
-  getNote(id: $id) {
-    id
-    title
-    content
-    tags
-    createdAt
-    updatedAt
-    owner
-    __typename
-  }
-}
-` as GeneratedQuery<APITypes.GetNoteQueryVariables, APITypes.GetNoteQuery>;
-export const listNotes = /* GraphQL */ `query ListNotes(
-  $filter: ModelNoteFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      title
-      content
-      tags
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<APITypes.ListNotesQueryVariables, APITypes.ListNotesQuery>;
 export const getUser = /* GraphQL */ `query GetUser($id: ID!) {
   getUser(id: $id) {
     id
     username
     email
     profile {
-      firstName
-      lastName
+      id
+      bio
       avatar
+      createdAt
+      updatedAt
+      profileUserId
+      owner
+      __typename
+    }
+    posts {
+      nextToken
       __typename
     }
     createdAt
     updatedAt
+    userProfileId
     owner
     __typename
   }
@@ -117,6 +77,7 @@ export const listUsers = /* GraphQL */ `query ListUsers(
       email
       createdAt
       updatedAt
+      userProfileId
       owner
       __typename
     }
@@ -125,3 +86,99 @@ export const listUsers = /* GraphQL */ `query ListUsers(
   }
 }
 ` as GeneratedQuery<APITypes.ListUsersQueryVariables, APITypes.ListUsersQuery>;
+export const getProfile = /* GraphQL */ `query GetProfile($id: ID!) {
+  getProfile(id: $id) {
+    id
+    bio
+    avatar
+    user {
+      id
+      username
+      email
+      createdAt
+      updatedAt
+      userProfileId
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    profileUserId
+    owner
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetProfileQueryVariables,
+  APITypes.GetProfileQuery
+>;
+export const listProfiles = /* GraphQL */ `query ListProfiles(
+  $filter: ModelProfileFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listProfiles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      bio
+      avatar
+      createdAt
+      updatedAt
+      profileUserId
+      owner
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListProfilesQueryVariables,
+  APITypes.ListProfilesQuery
+>;
+export const getPost = /* GraphQL */ `query GetPost($id: ID!) {
+  getPost(id: $id) {
+    id
+    title
+    content
+    mediaFiles
+    user {
+      id
+      username
+      email
+      createdAt
+      updatedAt
+      userProfileId
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    userPostsId
+    owner
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.GetPostQueryVariables, APITypes.GetPostQuery>;
+export const listPosts = /* GraphQL */ `query ListPosts(
+  $filter: ModelPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
+      content
+      mediaFiles
+      createdAt
+      updatedAt
+      userPostsId
+      owner
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.ListPostsQueryVariables, APITypes.ListPostsQuery>;
