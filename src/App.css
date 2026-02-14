@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.game h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.game-board {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.board-row {
+  display: flex;
+  gap: 8px;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.square:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.square:active {
+  transform: scale(0.95);
+}
+
+.square.winning {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: white;
+  animation: pulse 0.5s ease infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.game-info {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  min-width: 180px;
+}
+
+.status {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f0f0f0;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.status.winner {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: white;
+}
+
+.status.draw {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.history {
+  margin-top: 20px;
+}
+
+.history h3 {
+  margin: 0 0 12px 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.history ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.history li {
+  margin-bottom: 6px;
+}
+
+.history button {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.history button:hover {
+  background: #e0e0e0;
+}
+
+.history button.current {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .game-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .square {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+}
