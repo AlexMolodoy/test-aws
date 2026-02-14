@@ -10,6 +10,16 @@
       "StackName": "amplify-testaws-dev-0c35c",
       "StackId": "arn:aws:cloudformation:eu-central-1:907244239785:stack/amplify-testaws-dev-0c35c/781939a0-09ac-11f1-bb04-0a152d5a3299",
       "AmplifyAppId": "d22bgns4xje69p"
+    },
+    "categories": {
+      "auth": {
+        "testaws2c7313b5": {
+          "userPoolId": "eu-central-1_NlikDBoMB",
+          "userPoolName": "User pool - 8eoqm5",
+          "webClientId": "4dkuauqk1njjrpcuv1eallrmlj",
+          "nativeClientId": "66mad4hqvvevllm37cgbkeu1r5"
+        }
+      }
     }
   }
 }
