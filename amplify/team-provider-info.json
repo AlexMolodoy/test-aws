@@ -13,11 +13,17 @@
     },
     "categories": {
       "auth": {
-        "testaws2c7313b5": {
-          "userPoolId": "eu-central-1_NlikDBoMB",
-          "userPoolName": "User pool - 8eoqm5",
-          "webClientId": "4dkuauqk1njjrpcuv1eallrmlj",
-          "nativeClientId": "66mad4hqvvevllm37cgbkeu1r5"
+        "testaws4a83c2e5": {
+          "userPoolId": "eu-central-1_IooJfTh9g",
+          "userPoolName": "testtestaws51fb7a1d_userpool_51fb7a1d-dev",
+          "webClientId": "7rsmrbegtocmqkmq4ek5rrftjp",
+          "nativeClientId": "7rsmrbegtocmqkmq4ek5rrftjp"
+        }
+      },
+      "storage": {
+        "testaws3ade8083": {
+          "bucketName": "amplify-testtestaws-main-43c86-deployment",
+          "region": "eu-central-1"
         }
       }
     }

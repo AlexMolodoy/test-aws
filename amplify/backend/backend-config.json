@@ -1,6 +1,6 @@
 {
   "auth": {
-    "testaws2c7313b5": {
+    "testaws4a83c2e5": {
       "customAuth": false,
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
@@ -9,37 +9,61 @@
     }
   },
   "parameters": {
-    "AMPLIFY_auth_testaws2c7313b5_nativeClientId": {
+    "AMPLIFY_auth_testaws4a83c2e5_nativeClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "testaws2c7313b5"
+          "resourceName": "testaws4a83c2e5"
         }
       ]
     },
-    "AMPLIFY_auth_testaws2c7313b5_userPoolId": {
+    "AMPLIFY_auth_testaws4a83c2e5_userPoolId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "testaws2c7313b5"
+          "resourceName": "testaws4a83c2e5"
         }
       ]
     },
-    "AMPLIFY_auth_testaws2c7313b5_userPoolName": {
+    "AMPLIFY_auth_testaws4a83c2e5_userPoolName": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "testaws2c7313b5"
+          "resourceName": "testaws4a83c2e5"
         }
       ]
     },
-    "AMPLIFY_auth_testaws2c7313b5_webClientId": {
+    "AMPLIFY_auth_testaws4a83c2e5_webClientId": {
       "usedBy": [
         {
           "category": "auth",
-          "resourceName": "testaws2c7313b5"
+          "resourceName": "testaws4a83c2e5"
         }
       ]
+    },
+    "AMPLIFY_storage_testaws3ade8083_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "testaws3ade8083"
+        }
+      ]
+    },
+    "AMPLIFY_storage_testaws3ade8083_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "testaws3ade8083"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "testaws3ade8083": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "serviceType": "imported"
     }
   }
 }

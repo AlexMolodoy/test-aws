@@ -1,22 +1,16 @@
 {
   "authSelections": "userPoolOnly",
-  "resourceName": "testaws2c7313b5",
+  "resourceName": "testaws4a83c2e5",
   "serviceType": "imported",
   "region": "eu-central-1",
   "usernameAttributes": [
     "email"
   ],
-  "authProvidersUserPool": [],
   "requiredAttributes": [
     "email"
   ],
   "passwordPolicyMinLength": 8,
-  "passwordPolicyCharacters": [
-    "Requires Lowercase",
-    "Requires Uppercase",
-    "Requires Numbers",
-    "Requires Symbols"
-  ],
+  "passwordPolicyCharacters": [],
   "mfaConfiguration": "OFF",
   "autoVerifiedAttributes": [
     "email"
