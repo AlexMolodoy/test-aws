@@ -37,7 +37,10 @@
         "testawsc729e973": {}
       },
       "function": {
-        "userMigrationTrigger": {}
+        "userMigrationTrigger": {
+          "deploymentBucketName": "amplify-testaws-devtest-d5e78-deployment",
+          "s3Key": "amplify-builds/userMigrationTrigger-6f3278746d3354595150-build.zip"
+        }
       }
     }
   }

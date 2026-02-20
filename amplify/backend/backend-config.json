@@ -33,5 +33,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "parameters": {
+    "AMPLIFY_function_userMigrationTrigger_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "userMigrationTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_userMigrationTrigger_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "userMigrationTrigger"
+        }
+      ]
+    }
   }
 }
