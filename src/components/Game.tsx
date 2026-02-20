@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Board } from './Board';
+import { signOut } from 'aws-amplify/auth';
 
 type SquareValue = string | null;
 
@@ -69,6 +70,16 @@ export function Game() {
     setCurrentMove(0);
   };
 
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      console.log('Пользователь успешно вышел');
+    } catch (error) {
+      console.log('Ошибка при выходе:', error);
+    }
+  };
+
+
   let status: string;
   if (winner) {
     status = `Winner: ${winner}`;
@@ -111,6 +122,10 @@ export function Game() {
               ))}
             </ol>
           </div>
+
+          <button className="reset-button" onClick={handleSignOut}>
+            Выйти
+          </button>
         </div>
       </div>
     </div>
